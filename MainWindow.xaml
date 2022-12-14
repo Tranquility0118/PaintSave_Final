@@ -1,0 +1,59 @@
+﻿<Window
+    x:Class="PaintSave_Final.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PaintSave_Final"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    mc:Ignorable="d">
+
+    <Grid Width="1050" Height="650" Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="590" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="730" />
+            <ColumnDefinition Width="320" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" >
+            <ContentPresenter Background="Gainsboro" CornerRadius="8">
+                <MenuBar>
+                    <MenuBarItem Title="메뉴">
+                        <MenuFlyoutItem Text="저장" Click="MenuFlyoutItem_Click_1" />
+                        <MenuFlyoutItem Text="불러오기" Click="MenuFlyoutItem_Click_2" />
+                        <MenuFlyoutItem Text="Exit" Click="MenuFlyoutItem_Click_3" />
+                    </MenuBarItem>
+                </MenuBar>
+            </ContentPresenter>
+            <Slider AutomationProperties.Name="simple slider" Width="200" Grid.Column="0" Grid.Row="0"
+                ValueChanged="Slider_ValueChanged"/>
+           
+            <Button x:Name="myClear" Click="myClear_Click">Clear</Button>
+        </StackPanel>
+
+        <canvas:CanvasControl Grid.Column="0" Grid.Row="1"
+            PointerPressed="CanvasControl_PointerPressed"
+            PointerReleased="CanvasControl_PointerReleased"
+            PointerMoved="CanvasControl_PointerMoved"
+            Draw="CanvasControl_Draw"  ClearColor="CornflowerBlue"/>
+
+        <AppBarToggleButton Grid.Column="1" Grid.Row="0"
+                x:Name="Button2" Icon="Shuffle" IsChecked="True"
+                Label="Enable" Click="Button2_Click"/>
+        <Border Grid.Column="1" Grid.Row="1" x:Name="colorPanel" Visibility="Visible">
+            <ColorPicker  
+            ColorChanged="ColorPicker_ColorChanged"
+            ColorSpectrumShape="Ring"
+            IsMoreButtonVisible="False"
+            IsColorSliderVisible="True"
+            IsColorChannelTextInputVisible="True"
+            IsHexInputVisible="True"
+            IsAlphaEnabled="False"
+            IsAlphaSliderVisible="True"
+            IsAlphaTextInputVisible="True" />
+        </Border>
+    </Grid>
+</Window>
