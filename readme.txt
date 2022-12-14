@@ -1,27 +1,12 @@
-========================================================================
-    PaintSave_Final Project Overview
-========================================================================
 
-This project demonstrates how to get started writing WinUI3 apps directly
-with standard C++, using the Windows App SDK and C++/WinRT packages and
-XAML compiler support to generate implementation headers from interface
-(IDL) files. These headers can then be used to implement the local
-Windows Runtime classes referenced in the app's XAML pages.
+===Pain & Save func.===
 
-Steps:
-1. Create an interface (IDL) file to define any local Windows Runtime
-    classes referenced in the app's XAML pages.
-2. Build the project once to generate implementation templates under
-    the "Generated Files" folder, as well as skeleton class definitions
-    under "Generated Files\sources".
-3. Use the skeleton class definitions for reference to implement your
-    Windows Runtime classes.
-
-========================================================================
-Learn more about Windows App SDK here:
-https://docs.microsoft.com/windows/apps/windows-app-sdk/
-Learn more about WinUI3 here:
-https://docs.microsoft.com/windows/apps/winui/winui3/
-Learn more about C++/WinRT here:
-http://aka.ms/cppwinrt/
-========================================================================
+1. 마우스를 좌클릭을 하면 펜이 나온다.
+2. 우측 컬러픽커를 통해 색상을 변경할 수 있으며 RGB 값을 통해 직접 색상 지정이 가능하다.
+3. 상단 슬라이더를 통해 펜의 굵기를 지정할 수 있다.
+4. 메뉴를 들어가면 저장, 불러오기, EXIT 버튼이 있다
+- EXIT는 단순 종료 기능으로 자동저장 기능을 지원하지 않는다.(반드시 수동으로 저장한다.)
+5. 상단 Clear 버튼을 누르면 현제 화면이 삭제된다. 
+-펜 굵기 지정해둔 색상은 변경되지 않는다
+---
+저장되는 경로는 sln 파일을 열어 xaml.cpp파일에서 불러오기 함수와 저장하기 함수에 경로를 지정해주어야 한다.
